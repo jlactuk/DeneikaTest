@@ -1,0 +1,105 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  margin: 0;
+  padding: 1vw 0;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+}
+
+.number:before {
+  background-image: url("../imgs/phone.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+  height: 2vh;
+  width: 1vw;
+  content: "";
+}
+.max-w-10{
+  max-width: 10vw;
+}
+.img-bgc {
+  position: absolute;
+  z-index: -3;
+  top: 0;
+  height: inherit;
+  width: inherit;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+header {
+  margin: 0 auto;
+  height: fit-content;
+  nav {
+    a {
+      text-transform: uppercase;
+    }
+
+  }
+}
+.grid {
+  display: grid;
+
+  &.grid-2 {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  &.gap10 {
+    gap: 5vw;
+  }
+}
+.flex {
+  display: flex;
+
+    &.js-sb {
+      justify-content: space-between;
+    }
+
+    &.js-sa {
+      justify-content: space-around;
+    }
+
+    &.gap10 {
+      gap: 2vw;
+    }
+}
+.btn {
+  border: none;
+  background: #313D4B;
+  color: #FFFFFF;
+  height: min-content;
+  margin: auto 0;
+  width: max-content;
+  &.p1 {
+    padding: 1vw;
+  }
+  &.border-05 {
+    border-radius: .5vw;
+  }
+}
+.social {
+  img {
+    padding: .4vw;
+    width: auto;
+    height: 3vh;
+    border-radius: 2vw;
+  }
+  #tg {
+    background: #00A2F2;
+  }
+  #viber {
+    background: #7460F3;
+  }
+  #wp {
+    background: #25D266;
+  }
+}
