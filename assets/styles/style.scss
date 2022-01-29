@@ -1,9 +1,9 @@
 $fz : 1vw;
-
+@import url("fonts.scss");
 body {
   width: calc(100vw - 20px);
   height: 100vh;
-
+  font-family: UniNeue, sans-serif;
   margin: 0;
 
   font-size: $fz;
@@ -214,7 +214,6 @@ main {
     font-size: 3.8em;
   }
   .btn {
-    height: 4vw;
     text-transform: uppercase;
     word-wrap: break-word;
     border-radius: .5vw;
@@ -228,7 +227,7 @@ main {
   }
   .slider {
     padding-top: 1vw;
-    width: 50vw;
+    width: auto;
     article {
       img {
         height: 2vw;

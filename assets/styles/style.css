@@ -1,6 +1,8 @@
+@import url("fonts.scss");
 body {
   width: calc(100vw - 20px);
   height: 100vh;
+  font-family: UniNeue, sans-serif;
   margin: 0;
   font-size: 1vw;
   padding: 1vw 0;
@@ -209,7 +211,6 @@ main h1 {
   font-size: 3.8em;
 }
 main .btn {
-  height: 4vw;
   text-transform: uppercase;
   word-wrap: break-word;
   border-radius: 0.5vw;
@@ -223,7 +224,7 @@ main .btn img {
 }
 main .slider {
   padding-top: 1vw;
-  width: 50vw;
+  width: auto;
 }
 main .slider article img {
   height: 2vw;
