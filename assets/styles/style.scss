@@ -1,7 +1,9 @@
 $fz : 1vw;
+$screenWidth: calc(100vw - 20px);
 @import url("fonts.scss");
+
 body {
-  width: calc(100vw - 20px);
+  width: $screenWidth;
   height: 100vh;
   font-family: UniNeue, sans-serif;
   margin: 0;
@@ -57,7 +59,7 @@ body {
   position: absolute;
   z-index: -3;
   top: 0;
-  width: 100vw;
+  width: $screenWidth;
   height: 60vw;
   background-position: center;
   background-size: 120% 100%;

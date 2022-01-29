@@ -60,7 +60,7 @@ body main {
   position: absolute;
   z-index: -3;
   top: 0;
-  width: 100vw;
+  width: calc(100vw - 20px);
   height: 60vw;
   background-position: center;
   background-size: 120% 100%;
