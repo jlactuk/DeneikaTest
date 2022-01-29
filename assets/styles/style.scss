@@ -1,14 +1,26 @@
+$fz : 1vw;
+
 body {
-  width: 100vw;
+  width: calc(100vw - 20px);
   height: 100vh;
-  display: grid;
+
   margin: 0;
+
+  font-size: $fz;
   padding: 1vw 0;
   a {
     text-decoration: none;
     color: inherit;
   }
-
+  header,
+  main {
+    margin: 0 auto;
+    width: fit-content;
+    min-width: 80vw;
+  }
+}
+.relative {
+  position: relative;
 }
 .bold {
   font-weight: bold;
@@ -16,36 +28,61 @@ body {
 .number:before {
   background-image: url("../imgs/phone.svg");
   background-size: contain;
+  margin-right: .5vw;
   background-position: center;
   background-repeat: no-repeat;
   display: block;
-  height: 2vh;
+  height: 2vw;
   width: 1vw;
   content: "";
 }
-.max-w-10{
+.max-w-15 {
+  max-width: 15vw;
+}
+.max-w-10 {
   max-width: 10vw;
 }
+
+.absolute {
+  position: absolute;
+  &.center {
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
+}
+
 .img-bgc {
   position: absolute;
   z-index: -3;
   top: 0;
-  height: inherit;
-  width: inherit;
+  width: 100vw;
+  height: 60vw;
   background-position: center;
-  background-size: cover;
+  background-size: 120% 100%;
   background-repeat: no-repeat;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
+
 header {
-  margin: 0 auto;
   height: fit-content;
   nav {
     a {
       text-transform: uppercase;
     }
-
+  }
+  #logo {
+    height: 5vw;
+  }
+  #mapOpen {
+    height: 3vw;
+    border-radius: 2vw;
+  }
+  .btn {
+    background: #313D4B;
+    color: #FFFFFF;
   }
 }
 .grid {
@@ -55,8 +92,11 @@ header {
     grid-template-columns: repeat(2,1fr);
   }
 
-  &.gap10 {
-    gap: 5vw;
+  &.gap2 {
+    gap: 2vw;
+  }
+  &.gap1 {
+    gap: 1vw;
   }
 }
 .flex {
@@ -69,30 +109,64 @@ header {
     &.js-sa {
       justify-content: space-around;
     }
-
-    &.gap10 {
+    &.flex-column {
+      flex-direction: column;
+    }
+    &.gap2 {
       gap: 2vw;
     }
+    &.gap1 {
+      gap: 1vw;
+    }
+    &.gap4 {
+      gap: 4vw;
+    }
+  &.center {
+    justify-content: center;
+    align-items: center;
+  }
 }
 .btn {
   border: none;
-  background: #313D4B;
-  color: #FFFFFF;
-  height: min-content;
+  position: relative;
+  height: auto;
   margin: auto 0;
+  display: flex;
   width: max-content;
+  overflow-x: hidden;
   &.p1 {
     padding: 1vw;
+  }
+  &.p2 {
+    padding: 2vw;
   }
   &.border-05 {
     border-radius: .5vw;
   }
+  &.c-white {
+    color: #FFFFFF;
+  }
+  &.bgc-52BC5B {
+    background-color: #52BC5B;
+  }
+  .flare {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 45px;
+    transform: skewX(-45deg);
+    left: -150%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4));
+    animation: flareAnimation 3s infinite linear; // Время и тип анимации можно менять
+  }
+
 }
+
 .social {
   img {
-    padding: .4vw;
+    padding: .6vw;
     width: auto;
-    height: 3vh;
+    height: 1.3vw;
     border-radius: 2vw;
   }
   #tg {
@@ -103,5 +177,120 @@ header {
   }
   #wp {
     background: #25D266;
+  }
+}
+.bgc-white {
+  background-color: white;
+}
+.info {
+  article::after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: -.1vw;
+    transform: rotate(-45deg);
+    left: -1vw;
+    width: 1.2vw;
+    height: .2vw;
+    background-color: red;
+
+
+  }
+  & p {
+    max-width: 10vw;
+    padding: 0;
+    margin: 0;
+    font-size: 1.2em;
+  }
+  .fz-3 {
+    font-size: 3em;
+  }
+}
+main {
+  height: fit-content;
+  width: fit-content;
+  h1 {
+    width: 45vw;
+    font-size: 3.8em;
+  }
+  .btn {
+    height: 4vw;
+    text-transform: uppercase;
+    word-wrap: break-word;
+    border-radius: .5vw;
+    padding: 1vw 2vw;
+    p {
+      text-align: left;
+    }
+    img {
+      height: 2vw;
+    }
+  }
+  .slider {
+    padding-top: 1vw;
+    width: 50vw;
+    article {
+      img {
+        height: 2vw;
+        width: 1vw;
+      }
+      article {
+        img {
+          height: 10vw;
+          width: 8vw;
+        }
+      }
+    }
+  }
+}
+.pop-up-map {
+    opacity: 0;
+  z-index: -3;
+
+  iframe {
+    margin: auto;
+
+  }
+  article {
+    z-index: -3;
+  }
+  &.active {
+    opacity: 1;
+    z-index: 1;
+    transition: .3s;
+
+    iframe {
+      animation-name: OpenMenu;
+      animation-duration: 2s;
+      animation-direction: normal;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+    }
+    article {
+      z-index: 0;
+      width: 100vw;
+      height: 100vh;
+    }
+  }
+
+}
+@keyframes OpenMenu {
+  from {
+    width: 10vw;
+    height: 10vh;
+
+}
+ to {
+   width: 80vw;
+   height: 80vh;
+ }
+}
+@keyframes flareAnimation {
+  0% {
+    left: -10%;
+  }
+
+  100% {
+    left: 150%;
   }
 }
